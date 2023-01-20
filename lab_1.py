@@ -26,7 +26,6 @@ class Character:
     def everyone_dies(self) -> str:
         """
         Сообщает, жив ли персонаж, или мертв
-
         :return: Выводит надпись "You died hehehe", если игрок умер, и надпись "You haven't died yet, soldier", если нет
 
         Примеры:
