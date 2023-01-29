@@ -14,8 +14,19 @@ BOOKS_DATABASE = [
 
 # TODO написать класс Book
 class Book:
-
+    """
+    Описывает книги, помещающиеся в библиотеку
+    """
+    
     def __init__(self, id_, pages: int, name: str):  # Инициализируем параметры класса, вводим ограничения
+        """
+        Инициализирует параметры класса Book
+        Создает и подготавливает к работе данный класс
+        
+        :param id_: Параметр идентификатора книги 
+        :param pages: Параметр количества страниц книги
+        :param name: Параметр названия книги
+        """
         if not isinstance(id_, int):
             raise TypeError("This parameter should have int type, check your dict for mistake")
         self.book_id = id_
