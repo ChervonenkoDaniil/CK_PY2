@@ -72,7 +72,7 @@ class Library:
 
         :return: Значение последнего идентификатора, увеличенное на 1
         """
-        return 1 if len(self.book_list) == 0 else [i.book_id for i in self.book_list][-1] + 1
+        return 1 if len(self.book_list) == 0 else [books.book_id for books in self.book_list][-1] + 1
 
     # При предполагаемом соблюдении порядка сортировки книг в порядке возрастания:
         # return len(self.book_list) + 1
