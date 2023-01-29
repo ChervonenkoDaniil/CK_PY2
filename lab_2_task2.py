@@ -27,7 +27,6 @@ class Book:
         :param pages: Параметр количества страниц книги
         :param name: Параметр названия книги
         """
-        
         if not isinstance(id_, int):
             raise TypeError("This parameter should have int type, check your dict for mistake")
 
@@ -73,10 +72,9 @@ class Library:
 
         :return: Значение последнего идентификатора, увеличенное на 1
         """
-
         return 1 if len(self.book_list) == 0 else [i.book_id for i in self.book_list][-1] + 1
-        
-        # При предполагаемом соблюдении порядка сортировки книг в порядке возрастания:
+    
+    # При предполагаемом соблюдении порядка сортировки книг в порядке возрастания:
         # return len(self.book_list) + 1
 
     def get_index_by_book_id(self, id_for_search: int) -> int:
@@ -86,15 +84,14 @@ class Library:
         :param id_for_search: ID книги для осуществления запроса
         :return: Индекс книги в списке, при ее наличии, или возвращает ValueError
         """
-        
         if not isinstance(id_for_search, int):
             raise ValueError("This parameter should have int type, check your dict for mistake")
-        return [index for index, id_ in enumerate(self.book_list) if id_.book_id == id_for_search][0] if \
-            [index for index, id_ in enumerate(self.book_list) if id_.book_id == id_for_search] is not None\
-            else ValueError("Книги с запрашиваемым id не существует")
+        
+        book_index = [index for index, id_ in enumerate(self.book_list) if id_.book_id == id_for_search]
+        return book_index[0] if book_index is not None else ValueError("Книги с запрашиваемым id не существует")
 
     # При предполагаемом соблюдении порядка сортировки книг в порядке возрастания:
-    # return id_for_search - 1 (вместо enumerate)
+        # return id_for_search - 1 (вместо enumerate)
 
 
 if __name__ == '__main__':
