@@ -73,7 +73,7 @@ class Library:
         :return: Значение последнего идентификатора, увеличенное на 1
         """
         return 1 if len(self.book_list) == 0 else [i.book_id for i in self.book_list][-1] + 1
-    
+
     # При предполагаемом соблюдении порядка сортировки книг в порядке возрастания:
         # return len(self.book_list) + 1
 
@@ -86,9 +86,12 @@ class Library:
         """
         if not isinstance(id_for_search, int):
             raise ValueError("This parameter should have int type, check your dict for mistake")
-        
-        book_index = [index for index, id_ in enumerate(self.book_list) if id_.book_id == id_for_search]
-        return book_index[0] if book_index is not None else ValueError("Книги с запрашиваемым id не существует")
+
+        book_index = [index for index, books in enumerate(self.book_list) if books.book_id == id_for_search]
+        if not book_index:
+            raise ValueError("Книги с запрашиваемым id не существует")
+        else:
+            return book_index[0]
 
     # При предполагаемом соблюдении порядка сортировки книг в порядке возрастания:
         # return id_for_search - 1 (вместо enumerate)
